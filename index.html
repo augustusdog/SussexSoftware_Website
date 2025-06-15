@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- Rubik Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js"></script>
+
+    <title>SussexSoftware</title>
+    <style>
+        body { 
+            margin: 0;
+            font-family: Rubik;
+            font-size: 1.2vw;
+            color: white;
+         }
+
+        canvas { 
+            display: block;
+            z-index: 1;
+         }
+
+        /* Nav bar */
+
+        nav {
+            position: sticky;
+            z-index: 3;
+            top: 0;
+            display: flex;
+            align-items: center;
+            height: 4vw;
+            padding: 0 2em;
+            background-color: #2F70FF;
+        }
+
+        /* Title aligned to the left */
+        nav p {
+            margin: 0;
+            font-size: 1.4vw;
+            z-index: 4; /* Ensure it's on top if overlaps */
+            color: white;
+        }
+
+        /* Center the ul absolutely relative to the nav */
+        nav ul {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* List items inline */
+        nav ul li {
+            margin: 0 1em;
+        }
+
+        /* Optional: style links */
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 0.4vw 0.8vw;
+            border-radius: 0.3vw;
+        }
+
+        nav ul li a:hover{
+            background-color: #023299;
+        }
+
+        /* introduction container */
+
+        .container_sg{
+            display: flex;
+            margin: 4vw 10vw;
+            padding: 2vw 4vw;
+            background-color: #2F70FF;
+            box-shadow: 0 0.2vw 0.6vw black;
+            justify-content: center;
+            align-items: center;
+        }
+
+            .container_sg p{
+                margin-top: 0.5vw;
+                color: white;
+            }
+
+        .about{
+            position: absolute;
+            z-index: 2;
+            display: grid;
+            grid-template-rows: repeat(10, 4vh);
+            grid-template-columns: repeat(10, 4vw);
+        }
+
+
+        .threed, .gnomeo, .business_automation, .ai_implementation{
+            position: absolute;
+            z-index: 2;
+            display: none;
+            grid-template-rows: repeat(20, 5vh);
+            grid-template-columns: repeat(20, 5vw);
+        }
+        .standard{
+            color: white;
+            text-decoration: none;
+            font-size: 1.2vw;
+            font-weight: 900;
+            justify-content: center;
+            padding: 10%;
+        }
+
+        .standard:hover{
+            color: #aaaaaa;
+        }
+
+        .about_button_sg{
+            color: white;
+            margin-top: 1vw;
+            padding: 0.4vw 7vw;
+            background-color: #2F70FF;
+            border-color: white;
+            border-style:double;
+            border-radius: 0.3vw;
+
+        }
+
+        .about_button_sg:hover{
+            background-color: #023299;
+        }
+
+        .container_sg:hover{
+            scale: 1.03;
+            
+            transition-property: all;
+            transition-duration: 1s;
+            transition-timing-function: ease;
+        }
+
+        .h1_sg{
+            font-size: 2.8vw;
+            font-weight: 600;
+            margin: 0 0 0.9vw;
+        }
+
+        .sg_ticks li{
+            margin-top: 0.5vh;
+        }
+
+        #about, #our_services, #contact_us{
+            scroll-margin-top: 9vh;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Define svg for checkbox -->
+
+    <svg style="display: none;" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="icon-check" viewBox="0 0 64 64">
+            <path d="M32,2C15.431,2,2,15.432,2,32c0,16.568,13.432,30,30,30c16.568,0,30-13.432,30-30C62,15.432,48.568,2,32,2z 
+             M25.025,50 l-0.02-0.02L24.988,50L11,35.6l7.029-7.164l6.977,7.184l21-21.619L53,21.199L25.025,50z"
+          fill="white"/>
+        </symbol>
+    </svg>
+
+    <!-- Nav bar -->
+    <nav>
+        <p>SussexSoftware</p>
+        <ul>
+            <li><a href="#about" onclick="general_back()">About</a></li>
+            <li><a href="#our_services" onclick="general_back()">Our Services</a></li>
+            <li><a href="#contact_us" onclick="general_back()">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div id="home" class="home">
+
+        <div class="container_sg">
+            <p>Specialist support tailored to your business needs. There is no job too big or too small.</p>
+        </div>
+
+        <div id="about" class="container_sg">
+            <div class="container col-xxl-8 px-4 py-5">
+                <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                    <div class="col-10 col-sm-8 col-lg-6">
+                        <img src="gnome_inside.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+                    </div>
+                    <div class="col-lg-6">
+                        <h1 class="display-5 fw-bold lh-1 mb-3 h1_sg" style="color: white">About</h1>
+                        <p> A small, dedicated, team of software / hardware /mechanical engineers based in West Sussex, England </p>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <button class="about_button_sg" type="button">Speak to us</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="our_services" class="container_sg">
+            <div style="display: grid; grid-template-columns: repeat(10, 6vw); grid-template-rows: repeat(11, 5vh);">
+                <div style="grid-column: 1/11; grid-row: 1/3;display: flex;justify-content: center;align-items: center;">
+                    <h1 class="h1_sg">Our Services</h1>
+                </div>
+                <div class="box1_sg" style="grid-column: 1/6; grid-row: 3/7; margin: 2vw;">
+                    <h2>3D Modelling, Simulation and Printing</h2>
+                    <ul class="sg_ticks" style="list-style: none; padding: 0;margin: 0;">
+                        <li>
+                            <svg width="2vw" height="2vw" viewBox="0 0 64 64">
+                                <use href="#icon-check"></use>
+                            </svg> 
+                        Computer Aided Design (CAD)
+                        </li>
+                        <li>
+                            <svg width="2vw" height="2vw" viewBox="0 0 64 64">
+                                <use href="#icon-check"></use>
+                            </svg> 
+                        3D Simulations
+                        </li>
+                        <li>
+                            <svg width="2vw" height="2vw" viewBox="0 0 64 64">
+                                <use href="#icon-check"></use>
+                            </svg> 
+                        3D printing in PETG / PLA
+                        </li>
+                    </ul>
+                    <button class="about_button_sg" onclick="general_redirect('threed')">Previous work</button>
+                </div>
+                <div class="box1_sg" style="grid-column: 6/11; grid-row: 3/7; margin: 2vw;">
+                    <h2>Development & Prototyping</h2>
+                    <ul class="sg_ticks" style="list-style: none; padding: 0;margin: 0;">
+                        <li>
+                            <svg width="2vw" height="2vw" viewBox="0 0 64 64">
+                                <use href="#icon-check"></use>
+                            </svg> 
+                        Application development
+                        </li>
+                        <li>
+                            <svg width="2vw" height="2vw" viewBox="0 0 64 64">
+                                <use href="#icon-check"></use>
+                            </svg> 
+                        Website development
+                        </li>
+                        <li>
+                            <svg width="2vw" height="2vw" viewBox="0 0 64 64">
+                                <use href="#icon-check"></use>
+                            </svg> 
+                        Prototyping (software & hardware)
+                        </li>
+                    </ul>
+                    <button class="about_button_sg" onclick="general_redirect('gnomeo')">Previous work</button>
+                </div>
+                <div class="box1_sg" style="grid-column: 1/6; grid-row: 7/11; margin: 2vw;">
+                    <h2>AI Implementation</h2>
+                    <ul class="sg_ticks" style="list-style: none; padding: 0;margin: 0;">
+                        <li>
+                            <svg width="2vw" height="2vw" viewBox="0 0 64 64">
+                                <use href="#icon-check"></use>
+                            </svg> 
+                        Fine-tuned deep learning models - for image processing
+                        </li>
+                        <li>
+                            <svg width="2vw" height="2vw" viewBox="0 0 64 64">
+                                <use href="#icon-check"></use>
+                            </svg> 
+                        Integration of LLMs for decision making / content generation
+                        </li>
+                    </ul>
+                    <button class="about_button_sg" onclick="general_redirect('ai_implementation')">Previous work</button>
+                </div>
+                <div class="box1_sg" style="grid-column: 6/11; grid-row: 7/11; margin: 2vw;">
+                    <h2>Business Automation</h2>
+                    <ul class="sg_ticks" style="list-style: none; padding: 0;margin: 0;">
+                        <li>
+                            <svg width="2vw" height="2vw" viewBox="0 0 64 64">
+                                <use href="#icon-check"></use>
+                            </svg> 
+                        Custom Excel / Visual Basic Application (VBA) scripts for data processing
+                        </li>
+                        <li>
+                            <svg width="2vw" height="2vw" viewBox="0 0 64 64">
+                                <use href="#icon-check"></use>
+                            </svg> 
+                        Integration of PowerBI / Tableau for interactive dashboards
+                        </li>
+                    </ul>
+                    <button class="about_button_sg" onclick="general_redirect('business_automation')">Previous work</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="contact_us" class="container_sg" style="height: 100vh">
+            <h1 class="h1_sg">Book a Call</h1>
+            <iframe width='100%' height='100%' src='https://sussexsoftware.zohobookings.eu/portal-embed#/240223000000040052' frameborder='0' allowfullscreen='' > </iframe>
+        </div>
+    </div>
+
+    <!-- 3D parts: -->
+
+    <div id="threed" class="threed">
+        <div class = "list-group" style="grid-row:2; grid-column: 2 / 10; margin-top: 2rem; position: fixed; width: 50%">
+            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Autonomous Rover Drivetrain</h5>
+                    <small>May 2025</small>
+                </div>
+                <p class="mb-1">Designed and printed a helical gear drivetrain to reproduce the gear ratio from Tesla Model 3 / Y drivetrain for small autonomous rover</p>
+                <small></small>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Enclosure for Embedded System</h5>
+                    <small class="text-body-secondary">March 2025</small>
+                </div>
+                <p class="mb-1">Design and printed an enclosure for the battery and microcontroller of a prototype embedded system</p>
+                <small class="text-body-secondary"></small>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">3D Shed Builder</h5>
+                    <small>November 2024</small>
+                </div>
+                <p class="mb-1">Created a webpage where customers could simply create their own 3D shed. Doors, windows, roof type, roof material, shed colour, were all editable parameters</p>
+                <small></small>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Custom Orbital Welder Clamps</h5>
+                    <small class="text-body-secondary">April 2024</small>
+                </div>
+                <p class="mb-1">Designed custom clamps to be used with certain orbital welding heads</p>
+                <small class="text-body-secondary"></small>
+            </a>
+        </div>
+    </div>
+
+    <div id="gnomeo" class="gnomeo">
+        <div class = "list-group" style="grid-row:2; grid-column: 2 / 10; margin-top: 2rem; position: fixed; width: 43%">
+            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Low Powered, Portable, Discrete, Doormat Camera</h5>
+                    <small>March 2025</small>
+                </div>
+                <p class="mb-1">Automation was achieved through a potential divider circuit which sends a LOW signal to an ESP32 microcontroller when voltage drops below 25% of operating voltage. A fixed resistor was selected so that only a mass which exceeds 1.87kg would prompt the ESP32 to “wake up” from low-power mode - when  a LOW signal is detected. Data acquisition is by photo capture, using a pre-build function from the ESP32 camera library. Analysis was then completed to check the frame buffer was not empty, to encode the image and to send it to a web server - which would then decode it, authenticate it, and then upload it to google drive.</p>
+                <small></small>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Student Loan Calculator Web Application</h5>
+                    <small class="text-body-secondary">February 2025</small>
+                </div>
+                <p class="mb-1">Stochastically (randomly) modelled different cost pressures to output a series of potential outcomes, which were then evaluated according to boolean (true or false) logic - to provide users with a recommended action - e.g DO pay off loan, or DON'T pay off loan.</p>
+                <small class="text-body-secondary"></small>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Static Website</h5>
+                    <small>January 2025</small>
+                </div>
+                <p class="mb-1">Created a static website for a local mental health charity</p>
+                <small></small>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">3D Shed Builder</h5>
+                    <small class="text-body-secondary">November 2024</small>
+                </div>
+                <p class="mb-1">Created a webpage where customers could simply create their own 3D shed. Doors, windows, roof type, roof material, shed colour, were all editable parameters.</p>
+                <small class="text-body-secondary"></small>
+            </a>
+        </div>
+    </div>
+
+    <div id="business_automation" class="business_automation">
+        <div class = "list-group" style="grid-row:2; grid-column: 2 / 10; margin-top: 2rem; position: fixed; width: 43%">
+            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Pipeline to process > 500,000 rows of data</h5>
+                    <small>September 2024</small>
+                </div>
+                <p class="mb-1">A python script was created to filter a worksheet containing a large amount of data - before it was input into 3rd party visualisation software </p>
+                <small></small>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Script to automatically print required batch paperwork</h5>
+                    <small class="text-body-secondary">February 2024</small>
+                </div>
+                <p class="mb-1">A Visual Basic Application (VBA) program was written to automatically print required batch paperwork after a user entered the product and batch details into a custom-built user-interface, using Microsoft Excel</p>
+                <small class="text-body-secondary"></small>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Basic Visualisation Pipeline</h5>
+                    <small class="text-body-secondary">January 2024</small>
+                </div>
+                <p class="mb-1">Created a VBA script to generate a visualisation worksheet, using Microsoft Excel.</p>
+                <small class="text-body-secondary"></small>
+            </a>
+        </div>
+    </div>
+
+    <div id="ai_implementation" class="ai_implementation">
+        <div class = "list-group" style="grid-row:2; grid-column: 2 / 10; margin-top: 2rem; position: fixed; width: 43%">
+            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Automated content generation</h5>
+                    <small>October 2024</small>
+                </div>
+                <p class="mb-1">A python script was created to: firstly, generate relevant content (e.g related to daily news) using XAi API. Secondly, to post that content to the X (previously twitter) platfrom using the X API.</p>
+                <small></small>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Image classification of cars</h5>
+                    <small class="text-body-secondary">April 2022</small>
+                </div>
+                <p class="mb-1">Using MATLAB, several image processing algorithms were used to augmented the Stanford Cars dataset - so that improved image classification accuracy could be attained. Methods used include image transformations, colour filters, edge detection, and seam carving. Achieved improved classification accuracy of 99%. Deep learning model used was an AlexNet Convolutional Neural Network (CNN) - which was fine tuned on the aforementioned training data</p>
+                <small class="text-body-secondary"></small>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Image classification of EEGs</h5>
+                    <small class="text-body-secondary">February 2022</small>
+                </div>
+                <p class="mb-1">Using MATLAB, a series of raw Electroenphalograms (EEGs), and matrices of coherence between sets of EEGs, were converted into images, before being used to generated a training / testing set for use in a foundational (pre-trained) AlexNet CNN - fined tuned with the aforementioned data. The work investigated how classification accuracy is sensitive to different splits in training and testing data - in other wordws, intra and inter-patient.</p>
+                <small class="text-body-secondary"></small>
+            </a>
+        </div>
+    </div>
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script>
+
+        let camera_positions_start = {
+            origin: new THREE.Vector3(10000, 0, 0),
+            threed: new THREE.Vector3(190, 145, 120),
+            gnomeo: new THREE.Vector3(300, 0, -500),
+            business_automation: new THREE.Vector3(4800,70,0),
+            ai_implementation: new THREE.Vector3(6800, 70, 0)
+        }
+
+        let camera_positions_end = {
+            threed: new THREE.Vector3(100, 105, 60),
+            gnomeo: new THREE.Vector3(500, 0, 200),
+            business_automation: new THREE.Vector3(4700,0,50),
+            ai_implementation: new THREE.Vector3(6700, 0, 50)
+
+        }
+
+        let camera_target_start = {
+            origin: new THREE.Vector3(10000, 10, 0),
+            threed: new THREE.Vector3(-280, 100, -150),
+            gnomeo: new THREE.Vector3(2000, 0, 0),
+            business_automation: new THREE.Vector3(5000,50,0),
+            ai_implementation: new THREE.Vector3(7000, 50, 0)
+        }
+
+        let camera_target_end = {
+            threed: new THREE.Vector3(-280, 5, 0),
+            gnomeo: new THREE.Vector3(2000, 0, -200),
+            business_automation: new THREE.Vector3(5000,0,-60),
+            ai_implementation: new THREE.Vector3(7000, 0, -60)
+        }
+
+
+        let state = {
+            threed: false,
+            gnomeo: false,
+            business_automation: false,
+            ai_implementation: false,
+            renderToggle: false
+        }
+
+        html_element = {
+            home: document.getElementById("home"),
+            threed: document.getElementById("threed"),
+            gnomeo: document.getElementById("gnomeo"),
+            business_automation: document.getElementById("business_automation"),
+            ai_implementation: document.getElementById("ai_implementation")
+        }
+
+        function general_redirect(page){
+
+            state.renderToggle = true
+
+            //make the canvas take up the whole page
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+            //remove home elements
+            html_element.home.style.display = 'none'
+
+            //set starting camera position
+            camera.position.copy(camera_positions_start[page])
+            camera.lookAt(camera_target_start[page])
+
+            //set state of respective page to true (required for animations)
+            state[page] = true
+
+            //get new projects completed
+            html_element[page].style.display = 'grid'
+
+            //make something move after 1 second
+            setTimeout(function(){
+                targetScrollProgress = 1
+                speed = 2
+            }, 1000)
+            
+        }
+
+        function general_back(){
+
+            //change camera position back to looking at the home page
+            camera.position.copy(camera_positions_start.origin)
+            camera.lookAt(camera_target_start.origin)
+
+            //show home elements
+            html_element.home.style.display = 'grid'
+
+            if (state.threed){
+                page = 'threed'
+            }
+            if (state.gnomeo){
+                page = 'gnomeo'
+            }
+            if (state.business_automation){
+                page = 'business_automation'
+            }
+            if (state.ai_implementation){
+                page = 'ai_implementation'
+            }
+            
+            //hide page specific elements
+            html_element[page].style.display = 'none'
+
+            //change state back to zero
+            for (variable in state)
+                state[variable] = false
+
+            //reset scroll variable values
+            currentScrollProgress = 0
+            targetScrollProgress = 0
+
+            //shrink the canvas so that it takes up 0 height again
+            renderer.setSize(window.innerWidth, 0);
+        }
+
+        let speed = 0
+    
+        // Set up the scene, camera, and renderer
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x90D5FF); // Blue background
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, 0);
+        document.body.appendChild(renderer.domElement);
+
+        // Set up camera
+        const camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.1, 10000);
+        camera.position.copy(camera_positions_start.origin)
+        camera.lookAt(camera_positions_start.origin);
+        let targetScrollProgress = 0;
+        let currentScrollProgress = 0;
+
+        window.addEventListener('wheel', (event) => {
+            targetScrollProgress += event.deltaY * 0.005;
+            targetScrollProgress = Math.max(0, Math.min(1, targetScrollProgress));
+        });
+
+        // Animation loop with smooth interpolation
+        const targetPos = new THREE.Vector3();
+        const targetLookAt = new THREE.Vector3();
+
+        // Add ambient and directional lighting
+        const ambientLight = new THREE.AmbientLight(0xffffff);
+        scene.add(ambientLight);
+
+        // Add directional light with specified target
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+        directionalLight.position.set(-1000, 250, 50);
+        directionalLight.target.position.set(-120, 1000, -1000);
+        scene.add(directionalLight);
+        scene.add(directionalLight.target)
+
+
+        //Declare gear in global scope
+        let gear_small = null;
+        let gear_large = null
+        let shaft1 = null
+        let shaft2 = null
+        let roller2 = null
+        let shaftPlusRoller = null
+        let belt = null
+
+        // Load small gear
+        const loader = new THREE.STLLoader();
+        const texture_loader = new THREE.TextureLoader();
+
+        const sphereMaterial = new THREE.MeshPhongMaterial({color: 0x2F70FF})
+        const sphereGeometry = new THREE.SphereGeometry( 80, 100, 80)
+        const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial)
+        sphere.position.set(7000,0,0)
+        scene.add(sphere)
+
+        texture_loader.load(
+            './workbook.png',
+
+            function (texture){
+                const material = new THREE.MeshStandardMaterial({ map: texture });
+                const geometry = new THREE.BoxGeometry(40, 200, 200)
+                const excelWorkbook = new THREE.Mesh(geometry, material);
+                excelWorkbook.position.set(5000, 0, 0);
+                scene.add(excelWorkbook);
+            },
+        )
+
+        loader.load(
+            './models/gnomeo.stl', // Update this path if your STL file is named differently or in a subdirectory
+            function (geometry) {
+                geometry.center();
+                const material = new THREE.MeshPhongMaterial({ color: 0x000000 });
+                gnomeo = new THREE.Mesh(geometry, material);
+                scene.add(gnomeo);
+
+                gnomeo.rotation.x =  - Math.PI / 2
+                gnomeo.rotation.z = Math.PI - 0.17
+
+                gnomeo.position.set(2000, 0, 0)
+
+            },
+            function (xhr) {
+                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+            },
+            function (error) {
+                console.error('An error occurred loading the STL file:', error);
+            }
+        );
+
+
+        loader.load(
+            './models/mygear.stl', // Update this path if your STL file is named differently or in a subdirectory
+            function (geometry) {
+                geometry.center();
+                const material = new THREE.MeshPhongMaterial({ color: 0x000000 });
+                gear_small = new THREE.Mesh(geometry, material);
+                scene.add(gear_small);
+
+                // Center the model and adjust camera
+                const box = new THREE.Box3().setFromObject(gear_small);
+                const center = box.getCenter(new THREE.Vector3());
+                const size = box.getSize(new THREE.Vector3());
+                camera.position.z = Math.max(size.x, size.y, size.z) * 2; // Adjust camera distance
+            },
+            function (xhr) {
+                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+            },
+            function (error) {
+                console.error('An error occurred loading the STL file:', error);
+            }
+        );
+
+        //Load large gear
+        loader.load(
+            './models/mygearBIG.stl', // Update this path if your STL file is named differently or in a subdirectory
+            function (geometry) {
+                //geometry.translate(0,-60,-20)
+                geometry.center()
+                const material = new THREE.MeshPhongMaterial({ color: 0x000000 });
+                gear_large = new THREE.Mesh(geometry, material);
+                scene.add(gear_large);
+                
+                gear_large.position.set(0,54,0)
+
+            },
+            function (xhr) {
+                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+            },
+            function (error) {
+                console.error('An error occurred loading the STL file:', error);
+            }
+        );
+
+        
+        //Load shaft
+        loader.load(
+            './models/shaft.stl', // Update this path if your STL file is named differently or in a subdirectory
+            function (geometry) {
+
+                geometry.center()
+                const material = new THREE.MeshPhongMaterial({ color: 0xaaaaaa });
+                shaft1 = new THREE.Mesh(geometry, material);
+                scene.add(shaft1);
+
+                shaft1.rotation.x = - Math.PI / 2
+                shaft1.rotation.y= -Math.PI / 2
+
+                shaft1.position.set(0,0,-108)
+
+            },
+            function (xhr) {
+                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+            },
+            function (error) {
+                console.error('An error occurred loading the STL file:', error);
+            }
+        );
+
+        loader.load(
+            './models/shaft.stl', // Update this path if your STL file is named differently or in a subdirectory
+            function (geometry) {
+
+                geometry.center()
+                const material = new THREE.MeshPhongMaterial({ color: 0xaaaaaa });
+                shaft2 = new THREE.Mesh(geometry, material);
+                scene.add(shaft2);
+
+                shaft2.rotation.x = - Math.PI / 2
+                shaft2.rotation.y= -Math.PI / 2
+
+                shaft2.position.set(0,54,-108)
+
+            },
+            function (xhr) {
+                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+            },
+            function (error) {
+                console.error('An error occurred loading the STL file:', error);
+            }
+        );
+
+        //Load roller parts
+        loader.load(
+            './models/roller.stl', // Update this path if your STL file is named differently or in a subdirectory
+            function (geometry) {
+
+                geometry.center()
+                const material = new THREE.MeshPhongMaterial({ color: 0xaaaaaa });
+                roller2 = new THREE.Mesh(geometry, material);
+                scene.add(roller2);
+
+                roller2.rotation.x = - Math.PI / 2
+                roller2.rotation.y= -Math.PI / 2
+
+                roller2.position.set(0,54,65)
+
+            },
+            function (xhr) {
+                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+            },
+            function (error) {
+                console.error('An error occurred loading the STL file:', error);
+            }
+        );
+
+        loader.load(
+            './models/shaftPlusRoller.stl', // Update this path if your STL file is named differently or in a subdirectory
+            function (geometry) {
+
+                geometry.center()
+                const material = new THREE.MeshPhongMaterial({ color: 0xaaaaaa });
+                shaftPlusRoller = new THREE.Mesh(geometry, material);
+                scene.add(shaftPlusRoller);
+
+                shaftPlusRoller.rotation.x = - Math.PI / 2
+                shaftPlusRoller.rotation.y= -Math.PI / 2
+
+                shaftPlusRoller.position.set(-250,54,-51.5)
+
+            },
+            function (xhr) {
+                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+            },
+            function (error) {
+                console.error('An error occurred loading the STL file:', error);
+            }
+        );
+
+        //load machine
+
+        loader.load(
+            './models/machine.stl', // Update this path if your STL file is named differently or in a subdirectory
+            function (geometry) {
+
+                geometry.center()
+                const material = new THREE.MeshPhongMaterial({ color: 0x000000 });
+                machine = new THREE.Mesh(geometry, material);
+                scene.add(machine);
+
+                machine.rotation.x = - Math.PI / 2
+
+                machine.position.set(-120,54,-190)
+
+            },
+            function (xhr) {
+                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+            },
+            function (error) {
+                console.error('An error occurred loading the STL file:', error);
+            }
+        );
+
+        //Load belt
+        let path = new THREE.Path();
+        path.absarc(0, 0, 31, Math.PI * 0.5, Math.PI * 1.5, true);
+        path.absarc(-250, 0, 31, Math.PI * 1.5, Math.PI * 0.5, true);
+        path.closePath();
+        console.log(path)
+        let basePts = path.getSpacedPoints(200).reverse();
+
+        let g = new THREE.PlaneGeometry(1, 1, 200, 1);
+        basePts.forEach((p, idx) => {
+            g.attributes.position.setXYZ(idx, p.x, p.y, -50);
+            g.attributes.position.setXYZ(idx + 201, p.x, p.y, 50);
+        })
+
+        let m = new THREE.MeshBasicMaterial({
+            side: THREE.DoubleSide,
+            map: createTexture()
+        });
+
+        let band = new THREE.Mesh(g, m);
+        scene.add(band);
+
+        band.position.set(0, 54, 72.5)
+
+        // Handle window resizing
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        let small_gear_rotation = null
+        let large_gear_rotation = null
+
+        count = 0;
+
+        // Animation loop
+        function animate() {
+
+            requestAnimationFrame(animate);
+
+            if (state.renderToggle){
+            
+
+                small_gear_rotation = speed * 0.01
+                large_gear_rotation = speed * 0.01 * 24 / 83 //considers gear ratio
+
+                if (gear_small) {
+                gear_small.rotation.z += small_gear_rotation; // Rotate around Y-axis
+                }
+
+                if (gear_large){
+                gear_large.rotation.z -= large_gear_rotation
+                }
+
+                if (shaft1){
+                    shaft1.rotation.y -= small_gear_rotation
+                }
+
+                if (shaft2){
+                shaft2.rotation.y += large_gear_rotation
+                }
+
+                if (roller2){
+                    roller2.rotation.y += large_gear_rotation
+                }
+
+                if (shaftPlusRoller){
+                    shaftPlusRoller.rotation.y += large_gear_rotation
+                }
+
+                if (m){
+                    m.map.offset.x += speed * 0.0029
+                }
+
+
+                if (state.threed){
+
+                    animate_page('threed')
+
+                }
+                if (state.gnomeo){
+
+                    animate_page('gnomeo')
+                }
+
+                if (state.business_automation){
+
+                    animate_page('business_automation')
+
+                }
+
+                if (state.ai_implementation){
+
+                    animate_page('ai_implementation')
+
+                }
+
+
+
+                //controls.update();
+                renderer.render(scene, camera);
+
+                count += 1
+
+                if (count > 200){
+                    console.log(currentScrollProgress)
+                    count = 0
+                }
+            }  
+
+
+ 
+            
+        }
+        animate();
+
+    function animate_page(page){
+
+        // //smooth scrollProgress
+        currentScrollProgress += (targetScrollProgress - currentScrollProgress) * 0.09
+
+        // Interpolate position and look-at
+        targetPos.lerpVectors(camera_positions_start[page], camera_positions_end[page], currentScrollProgress);
+        targetLookAt.lerpVectors(camera_target_start[page], camera_target_end[page], currentScrollProgress);
+
+        // Smoothly update camera
+        camera.position.lerp(targetPos, 0.1);
+        camera.lookAt(targetLookAt);
+
+    }
+
+    function createTexture(){
+        let c = document.createElement("canvas");
+        c.width = c.height = 256;
+        let ctx = c.getContext("2d");
+        ctx.fillStyle = "black";
+            ctx.fillRect(0, 0, c.width, c.height);
+        ctx.strokeStyle = "white";
+        ctx.beginPath();
+        ctx.moveTo(0,0);
+        ctx.lineWidth = 100;
+        ctx.lineTo(c.width, c.height);
+        ctx.stroke();
+        
+        let texture = new THREE.CanvasTexture(c);
+        texture.wrapS = THREE.RepeatWrapping;
+        texture.wrapT = THREE.MirroredRepeatWrapping;
+        texture.repeat.set(10, 2);
+        
+        return texture;
+        }
+    </script>
+</body>
+</html>
