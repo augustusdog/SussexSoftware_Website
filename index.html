@@ -15,10 +15,11 @@
 
     <title>SussexSoftware</title>
     <style>
+
         body { 
             margin: 0;
             font-family: Rubik;
-            font-size: 1.2vw;
+            font-size: 1.4rem;
             color: white;
          }
 
@@ -35,7 +36,7 @@
             top: 0;
             display: flex;
             align-items: center;
-            height: 4vw;
+            height: 7rem;
             padding: 0 2em;
             background-color: #2F70FF;
         }
@@ -43,7 +44,7 @@
         /* Title aligned to the left */
         nav p {
             margin: 0;
-            font-size: 1.4vw;
+            font-size: 1.8rem;
             z-index: 4; /* Ensure it's on top if overlaps */
             color: white;
         }
@@ -109,18 +110,6 @@
             grid-template-rows: repeat(20, 5vh);
             grid-template-columns: repeat(20, 5vw);
         }
-        .standard{
-            color: white;
-            text-decoration: none;
-            font-size: 1.2vw;
-            font-weight: 900;
-            justify-content: center;
-            padding: 10%;
-        }
-
-        .standard:hover{
-            color: #aaaaaa;
-        }
 
         .about_button_sg{
             color: white;
@@ -146,9 +135,13 @@
         }
 
         .h1_sg{
-            font-size: 2.8vw;
+            font-size: 2.6rem;
             font-weight: 600;
             margin: 0 0 0.9vw;
+        }
+
+        h2{
+            font-size: 2rem;
         }
 
         .sg_ticks li{
@@ -157,6 +150,53 @@
 
         #about, #our_services, #contact_us{
             scroll-margin-top: 9vh;
+        }
+
+        /* For Tablet Devices */
+        @media (max-width: 950px){
+            body{
+                font-size: 0.6rem;
+                overflow-wrap: break-word;
+            }
+
+            nav{
+                height: 3rem;;
+            }
+
+            nav p{
+                font-size: 1.0rem;
+            }
+
+            .h1_sg{
+                font-size: 2.2rem;
+            }
+
+            h2{
+                font-size: 1.2rem;
+            }
+        }
+
+        /* For Mobile Devices */
+        @media (max-width: 500px){
+            body{
+                font-size: 0.4rem;
+            }
+
+            nav{
+                height: 2.5rem;;
+            }
+
+            nav p{
+                font-size: 0.6rem;
+            }
+
+            .h1_sg{
+                font-size: 1.6rem;
+            }
+
+            h2{
+                font-size: 0.8rem;
+            }
         }
 
     </style>
@@ -301,7 +341,9 @@
 
         <div id="contact_us" class="container_sg" style="height: 100vh">
             <h1 class="h1_sg">Book a Call</h1>
-            <iframe width='100%' height='100%' src='https://sussexsoftware.zohobookings.eu/portal-embed#/240223000000040052' frameborder='0' allowfullscreen='' > </iframe>
+            <div style="width:100%; height: 50vh;">
+                <iframe width='100%' height='100%' src='https://sussexsoftware.zohobookings.eu/portal-embed#/240223000000040052' frameborder='0' allowfullscreen='' > </iframe>
+            </div>
         </div>
     </div>
 
@@ -311,7 +353,7 @@
         <div class = "list-group" style="grid-row:2; grid-column: 2 / 10; margin-top: 2rem; position: fixed; width: 50%">
             <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Autonomous Rover Drivetrain</h5>
+                    <h2 class="mb-1">Autonomous Rover Drivetrain</h2>
                     <small>May 2025</small>
                 </div>
                 <p class="mb-1">Designed and printed a helical gear drivetrain to reproduce the gear ratio from Tesla Model 3 / Y drivetrain for small autonomous rover</p>
@@ -319,7 +361,7 @@
             </a>
             <a href="#" class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Enclosure for Embedded System</h5>
+                    <h2 class="mb-1">Enclosure for Embedded System</h2>
                     <small class="text-body-secondary">March 2025</small>
                 </div>
                 <p class="mb-1">Design and printed an enclosure for the battery and microcontroller of a prototype embedded system</p>
@@ -327,7 +369,7 @@
             </a>
             <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">3D Shed Builder</h5>
+                    <h2 class="mb-1">3D Shed Builder</h2>
                     <small>November 2024</small>
                 </div>
                 <p class="mb-1">Created a webpage where customers could simply create their own 3D shed. Doors, windows, roof type, roof material, shed colour, were all editable parameters</p>
@@ -335,7 +377,7 @@
             </a>
             <a href="#" class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Custom Orbital Welder Clamps</h5>
+                    <h2 class="mb-1">Custom Orbital Welder Clamps</h2>
                     <small class="text-body-secondary">April 2024</small>
                 </div>
                 <p class="mb-1">Designed custom clamps to be used with certain orbital welding heads</p>
@@ -348,7 +390,7 @@
         <div class = "list-group" style="grid-row:2; grid-column: 2 / 10; margin-top: 2rem; position: fixed; width: 43%">
             <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Low Powered, Portable, Discrete, Doormat Camera</h5>
+                    <h2 class="mb-1">Low Powered, Portable, Discrete, Doormat Camera</h2>
                     <small>March 2025</small>
                 </div>
                 <p class="mb-1">Automation was achieved through a potential divider circuit which sends a LOW signal to an ESP32 microcontroller when voltage drops below 25% of operating voltage. A fixed resistor was selected so that only a mass which exceeds 1.87kg would prompt the ESP32 to “wake up” from low-power mode - when  a LOW signal is detected. Data acquisition is by photo capture, using a pre-build function from the ESP32 camera library. Analysis was then completed to check the frame buffer was not empty, to encode the image and to send it to a web server - which would then decode it, authenticate it, and then upload it to google drive.</p>
@@ -356,7 +398,7 @@
             </a>
             <a href="#" class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Student Loan Calculator Web Application</h5>
+                    <h2 class="mb-1">Student Loan Calculator Web Application</h2>
                     <small class="text-body-secondary">February 2025</small>
                 </div>
                 <p class="mb-1">Stochastically (randomly) modelled different cost pressures to output a series of potential outcomes, which were then evaluated according to boolean (true or false) logic - to provide users with a recommended action - e.g DO pay off loan, or DON'T pay off loan.</p>
@@ -364,7 +406,7 @@
             </a>
             <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Static Website</h5>
+                    <h2 class="mb-1">Static Website</h2>
                     <small>January 2025</small>
                 </div>
                 <p class="mb-1">Created a static website for a local mental health charity</p>
@@ -372,7 +414,7 @@
             </a>
             <a href="#" class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">3D Shed Builder</h5>
+                    <h2 class="mb-1">3D Shed Builder</h2>
                     <small class="text-body-secondary">November 2024</small>
                 </div>
                 <p class="mb-1">Created a webpage where customers could simply create their own 3D shed. Doors, windows, roof type, roof material, shed colour, were all editable parameters.</p>
@@ -385,7 +427,7 @@
         <div class = "list-group" style="grid-row:2; grid-column: 2 / 10; margin-top: 2rem; position: fixed; width: 43%">
             <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Pipeline to process > 500,000 rows of data</h5>
+                    <h2 class="mb-1">Pipeline to process > 500,000 rows of data</h2>
                     <small>September 2024</small>
                 </div>
                 <p class="mb-1">A python script was created to filter a worksheet containing a large amount of data - before it was input into 3rd party visualisation software </p>
@@ -393,7 +435,7 @@
             </a>
             <a href="#" class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Script to automatically print required batch paperwork</h5>
+                    <h2 class="mb-1">Script to automatically print required batch paperwork</h2>
                     <small class="text-body-secondary">February 2024</small>
                 </div>
                 <p class="mb-1">A Visual Basic Application (VBA) program was written to automatically print required batch paperwork after a user entered the product and batch details into a custom-built user-interface, using Microsoft Excel</p>
@@ -401,7 +443,7 @@
             </a>
             <a href="#" class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Basic Visualisation Pipeline</h5>
+                    <h2 class="mb-1">Basic Visualisation Pipeline</h2>
                     <small class="text-body-secondary">January 2024</small>
                 </div>
                 <p class="mb-1">Created a VBA script to generate a visualisation worksheet, using Microsoft Excel.</p>
@@ -414,7 +456,7 @@
         <div class = "list-group" style="grid-row:2; grid-column: 2 / 10; margin-top: 2rem; position: fixed; width: 43%">
             <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Automated content generation</h5>
+                    <h2 class="mb-1">Automated content generation</h2>
                     <small>October 2024</small>
                 </div>
                 <p class="mb-1">A python script was created to: firstly, generate relevant content (e.g related to daily news) using XAi API. Secondly, to post that content to the X (previously twitter) platfrom using the X API.</p>
@@ -422,7 +464,7 @@
             </a>
             <a href="#" class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Image classification of cars</h5>
+                    <h2 class="mb-1">Image classification of cars</h2>
                     <small class="text-body-secondary">April 2022</small>
                 </div>
                 <p class="mb-1">Using MATLAB, several image processing algorithms were used to augmented the Stanford Cars dataset - so that improved image classification accuracy could be attained. Methods used include image transformations, colour filters, edge detection, and seam carving. Achieved improved classification accuracy of 99%. Deep learning model used was an AlexNet Convolutional Neural Network (CNN) - which was fine tuned on the aforementioned training data</p>
@@ -430,7 +472,7 @@
             </a>
             <a href="#" class="list-group-item list-group-item-action">
                 <div class="d-flex w-100 justify-content-between">
-                    <h5 class="mb-1">Image classification of EEGs</h5>
+                    <h2 class="mb-1">Image classification of EEGs</h2>
                     <small class="text-body-secondary">February 2022</small>
                 </div>
                 <p class="mb-1">Using MATLAB, a series of raw Electroenphalograms (EEGs), and matrices of coherence between sets of EEGs, were converted into images, before being used to generated a training / testing set for use in a foundational (pre-trained) AlexNet CNN - fined tuned with the aforementioned data. The work investigated how classification accuracy is sensitive to different splits in training and testing data - in other wordws, intra and inter-patient.</p>
